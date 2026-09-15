@@ -8,3 +8,6 @@ Proyectos/
 # ningún archivo del sitio, se quedan solo en tu disco.
 assets/perfil/santiago.png
 assets/IMG_Sobre_Mi.png
+
+.vercel
+.env*
