@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Santiago Fernandez — Editor & Artista 3D</title>
+<meta name="description" content="Portfolio de Santiago Fernandez, editor de video y artista 3D con base en Rosario, Argentina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <div class="preloader" id="preloader"><span class="preloader-count mono" id="preloaderCount">00</span></div>
+
+  <video id="bgVideo" class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="assets/video/fondo-web.mp4" type="video/mp4">
+  </video>
+  <canvas id="nebulaCanvas" aria-hidden="true"></canvas>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <main>
+    <section class="hero-frame">
+      <div class="eyebrow mono reveal">PORTFOLIO — 2026</div>
+      <h1 class="reveal" id="magneticTitle">Santiago Fernandez</h1>
+      <div class="tagline mono reveal">Senior Editor — 3D Artist</div>
+      <a href="trabajos.html" class="go-btn mono reveal">GO</a>
+    </section>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>SANTIAGO FERNANDEZ<span class="dot">·</span>ROSARIO, ARGENTINA</span>
+    <span>© 2026</span>
+  </footer>
+
+  <script src="js/site.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

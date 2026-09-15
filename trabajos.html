@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trabajos — Santiago Fernandez</title>
+<meta name="description" content="Trabajos seleccionados de edición de video y 3D de Santiago Fernandez.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800;900&family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+
+  <video id="bgVideo" class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="assets/video/fondo-web.mp4" type="video/mp4">
+  </video>
+  <canvas id="nebulaCanvas" aria-hidden="true"></canvas>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <div class="viewfinder" aria-hidden="true">
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
+    <div class="frame-meta meta-coords mono">32°57'S 60°39'W<br>ROSARIO, AR</div>
+    <div class="frame-meta meta-status mono"><span class="rec-dot"></span> DISPONIBLE PARA PROYECTOS</div>
+  </div>
+
+  <header class="site-nav">
+    <a href="index.html" class="nav-logo display">Santiago Fernandez.</a>
+  </header>
+
+  <main>
+    <div class="work-hud reveal" id="sliderWrap">
+      <div class="hud-side-label mono">PORTFOLIO — 2026</div>
+      <div class="hud-top-left">
+        <div class="hud-counter mono" id="sliderCounter"><span class="current">01</span><span class="total">/ 01</span></div>
+      </div>
+
+      <div class="slider-stage-wrap">
+        <div class="slider-side-preview side-prev" id="prevPreview" aria-hidden="true"></div>
+        <div class="slider-stage" id="sliderStage"><!-- se arma con JS a partir de PROJECTS --></div>
+        <div class="slider-side-preview side-next" id="nextPreview" aria-hidden="true"></div>
+        <div class="slide-meta" id="sliderMeta"></div>
+        <div class="slider-hint mono">
+          <span class="line"></span> DESLIZÁ LA RUEDA DEL MOUSE
+        </div>
+      </div>
+
+      <div class="hud-bottom-left mono">
+        <div class="hud-client" id="hudClient"></div>
+        <div class="hud-role" id="hudRole"></div>
+      </div>
+      <div class="hud-bottom-right mono" id="hudYear"></div>
+
+      <div class="hud-ruler" aria-hidden="true">
+        <div class="hud-ruler-track" id="hudRuler"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer mono">
+    <span>SANTIAGO FERNANDEZ<span class="dot">·</span>ROSARIO, ARGENTINA</span>
+    <span>© 2026</span>
+  </footer>
+
+  <!-- DETALLE DE PROYECTO -->
+  <div class="project-detail" id="projectDetail">
+    <a href="index.html" class="nav-logo display detail-logo">Santiago Fernandez.</a>
+    <div class="project-detail-grid">
+      <div class="project-detail-text">
+        <div class="detail-topbar">
+          <button class="detail-back mono" id="detailClose">← VOLVER</button>
+          <span class="detail-number mono" id="detailNumber">N°01</span>
+        </div>
+        <div class="detail-meta mono">
+          <div><span class="detail-meta-label">CLIENTE</span><span class="detail-meta-value" id="modalClient"></span></div>
+          <div><span class="detail-meta-label">AÑO</span><span class="detail-meta-value" id="modalYear"></span></div>
+        </div>
+        <h2 id="modalTitle"></h2>
+        <div class="detail-divider"></div>
+        <div class="detail-description" id="modalDescription"></div>
+        <div class="detail-tags mono" id="modalTags"></div>
+      </div>
+      <div class="detail-divider-col" aria-hidden="true"></div>
+      <div class="project-detail-media">
+        <div class="modal-video">
+          <div class="modal-corner corner-tl"></div>
+          <div class="modal-corner corner-tr"></div>
+          <div class="modal-corner corner-bl"></div>
+          <div class="modal-corner corner-br"></div>
+          <iframe id="modalIframe" src="" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <video id="modalVideoFile" controls playsinline></video>
+          <img id="modalStill" alt="">
+        </div>
+        <div class="detail-dots" id="detailDots"></div>
+
+        <!-- Case study de Behance: se muestra en vez de lo de arriba cuando
+             el proyecto es type:"behance". Apila el video + las imágenes
+             reales del proyecto (mismo orden que en Behance) dentro de un
+             panel con scroll propio, como si scrollearas la página real. -->
+        <div class="behance-scroll" id="behanceScroll">
+          <div class="behance-topbar mono">
+            <span>CASE STUDY</span>
+            <a id="behanceLink" href="" target="_blank" rel="noopener">VER EN BEHANCE ↗</a>
+          </div>
+          <div class="behance-modules" id="behanceModules"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/site.js"></script>
+  <script src="js/trabajos.js"></script>
+</body>
+</html>

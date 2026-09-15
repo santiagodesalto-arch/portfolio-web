@@ -1,0 +1,10 @@
+# Archivos de trabajo/origen que no van al sitio publicado
+Proyectos/
+
+# Configuración local de Claude Code
+.claude/settings.local.json
+
+# Imágenes sueltas de la sección "Sobre Mí" (borrada) — no las usa
+# ningún archivo del sitio, se quedan solo en tu disco.
+assets/perfil/santiago.png
+assets/IMG_Sobre_Mi.png
