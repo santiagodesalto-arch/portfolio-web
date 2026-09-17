@@ -5,6 +5,9 @@
      YouTube: https://www.youtube.com/embed/TU_ID
    tcIn / tcOut: timecodes decorativos (podés dejarlos o
      cambiarlos por la duración real del video).
+   category: para los filtros de arriba a la izquierda —
+     "batallapost" | "freelance" | "personal". Un proyecto sin
+     category no aparece en ningún filtro salvo "ALL WORKS".
 ========================================================= */
 const PROJECTS = [
   {
@@ -12,6 +15,7 @@ const PROJECTS = [
     client: "Provincia de Santa Fe",
     role: "3D · Edición · Diseño Sonoro · Motion",
     year: 2025,
+    category: "batallapost",
     description: [
       "Campaña de seguridad vial para la Provincia de Santa Fe. Mi participación en este proyecto estuvo relacionada con el 3D y la edición: realicé las simulaciones de las prendas de los personajes y resolví algunos planos y encuadres de cámara.",
       "Por otro lado, estuve encargado del montaje de la pieza, el diseño sonoro y la animación de los supers.",
@@ -27,6 +31,7 @@ const PROJECTS = [
     client: "Telcel",
     role: "Edición",
     year: 2025,
+    category: "batallapost",
     description: [
       "Pieza para Telcel. Mi trabajo estuvo enfocado exclusivamente en la edición: armé el montaje completo de la pieza de punta a punta.",
       "Trabajo realizado en Batallapost."
@@ -41,6 +46,7 @@ const PROJECTS = [
     client: "Laboratorio Elea",
     role: "3D Tracking · Compositing · IA Generativa · Edición",
     year: 2025,
+    category: "batallapost",
     description: [
       "Campaña para el Laboratorio Elea. Participé en parte del tracking 3D y en algo de compositing e IA generativa, además de encargarme de la totalidad del montaje.",
       "Trabajo realizado en Batallapost."
@@ -55,6 +61,7 @@ const PROJECTS = [
     client: "Schneider",
     role: "Edición",
     year: 2025,
+    category: "batallapost",
     description: [
       "Serie de piezas digitales para Schneider. Mi trabajo estuvo del lado de la edición: armé el montaje de cada una de las piezas de la tanda, pensadas para redes y plataformas digitales.",
       "Producción a cargo de Fight Films.",
@@ -75,6 +82,7 @@ const PROJECTS = [
     client: "MABE",
     role: "3D · Animación · Render · Edición",
     year: 2026,
+    category: "batallapost",
     description: [
       "Serie de piezas para GE Appliance, dentro de la campaña BIC 7, desarrolladas íntegramente en 3D. Participé desde la creatividad y el planteamiento de los storyboards, hasta en parte de la animación, las simulaciones y los renders.",
       "También estuve a cargo de la totalidad del montaje de la campaña.",
@@ -90,6 +98,7 @@ const PROJECTS = [
     client: "MABE",
     role: "3D · Animación · Render · Edición",
     year: 2026,
+    category: "batallapost",
     description: [
       "Piezas para Mabe dentro de la misma campaña BIC 7, también resueltas íntegramente en 3D: sumé a la creatividad y los storyboards, en parte de la animación, las simulaciones y los renders.",
       "También estuve a cargo de la totalidad del montaje de la campaña.",
@@ -109,6 +118,7 @@ const PROJECTS = [
     client: "Proyecto personal",
     role: "Dirección · 3D · Animación · Render",
     year: 2025,
+    category: "personal",
     description: [
       "Cortometraje CGI personal, resuelto íntegramente en 3D: dirección, animación, simulación y render.",
       "Herramientas: Cinema 4D, Redshift y After Effects."
@@ -187,15 +197,22 @@ const cards = PROJECTS.map((p) => {
   return card;
 });
 
-// Regla vertical: una marca por proyecto. Se desplaza como una cinta
-// métrica a medida que cambiamos de proyecto, resaltando la actual.
+// Regla vertical: una marca por proyecto VISIBLE (según el filtro activo).
+// Se reconstruye cada vez que cambia el filtro, porque la cantidad de
+// marcas tiene que coincidir con la cantidad de trabajos filtrados, no
+// con el total de PROJECTS.
 const TICK_SPACING = 15 + 1; // gap + alto de la marca, definido en CSS
-const ticks = PROJECTS.map(() => {
-  const tick = document.createElement('div');
-  tick.className = 'tick';
-  rulerTrack.appendChild(tick);
-  return tick;
-});
+let ticks = [];
+function buildTicks(){
+  rulerTrack.innerHTML = '';
+  ticks = order.map(() => {
+    const tick = document.createElement('div');
+    tick.className = 'tick';
+    rulerTrack.appendChild(tick);
+    return tick;
+  });
+}
+buildTicks();
 
 // Previews de los proyectos anterior/siguiente a los costados,
 // reutilizando la miniatura que ya se cargó en su tarjeta.
@@ -207,6 +224,26 @@ function refreshSidePreviews(){
 }
 
 function render(){
+  const pad = (n) => String(n).padStart(2, '0');
+
+  // Filtro sin resultados (todavía): estado vacío en vez de romper el HUD.
+  if(order.length === 0){
+    cards.forEach(card => card.classList.remove('is-active'));
+    meta.innerHTML = '';
+    stage.classList.add('is-empty');
+    wrap.classList.add('is-empty');
+    hudClient.textContent = '';
+    hudRole.textContent = '';
+    hudYear.textContent = '';
+    counter.innerHTML = `<span class="current">00</span><span class="total">/ 00</span>`;
+    rulerTrack.style.transform = 'translateY(0)';
+    prevPreview.style.backgroundImage = '';
+    nextPreview.style.backgroundImage = '';
+    return;
+  }
+  stage.classList.remove('is-empty');
+  wrap.classList.remove('is-empty');
+
   const projectIndex = order[current];
   cards.forEach((card, i) => card.classList.toggle('is-active', i === projectIndex));
   const p = PROJECTS[projectIndex];
@@ -214,8 +251,7 @@ function render(){
   hudClient.textContent = p.client;
   hudRole.textContent = p.role;
   hudYear.textContent = p.year;
-  const pad = (n) => String(n).padStart(2, '0');
-  counter.innerHTML = `<span class="current">${pad(current + 1)}</span><span class="total">/ ${pad(PROJECTS.length)}</span>`;
+  counter.innerHTML = `<span class="current">${pad(current + 1)}</span><span class="total">/ ${pad(order.length)}</span>`;
 
   ticks.forEach((tick, i) => tick.classList.toggle('is-active', i === current));
   const centerOffset = 220 / 2 - TICK_SPACING / 2;
@@ -224,6 +260,40 @@ function render(){
   refreshSidePreviews();
 }
 render();
+
+// ---------- Filtros: ALL WORKS / BATALLAPOST / FREELANCE / PERSONAL ----------
+const hudFilters = document.getElementById('hudFilters');
+const emptyMsg = document.createElement('div');
+emptyMsg.className = 'hud-empty mono';
+document.querySelector('.slider-stage-wrap').appendChild(emptyMsg);
+
+const FILTER_LABELS = {
+  all: 'trabajos',
+  batallapost: 'trabajos en BATALLAPOST',
+  freelance: 'trabajos FREELANCE',
+  personal: 'trabajos PERSONALES'
+};
+
+function applyFilter(filter){
+  order = PROJECTS
+    .map((_, i) => i)
+    .filter(i => filter === 'all' || PROJECTS[i].category === filter);
+  current = 0;
+  buildTicks();
+  emptyMsg.textContent = order.length === 0
+    ? `Todavía no hay ${FILTER_LABELS[filter] || 'trabajos'} cargados acá.`
+    : '';
+  render();
+}
+
+hudFilters.querySelectorAll('button').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if(btn.classList.contains('is-active')) return;
+    hudFilters.querySelectorAll('button').forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    applyFilter(btn.dataset.filter);
+  });
+});
 
 // Anima la tarjeta saliente hacia un costado (achicándose) mientras la
 // entrante llega desde el lado opuesto y crece hasta el centro.
