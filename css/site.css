@@ -564,11 +564,16 @@ main{ position:relative; z-index:10; flex:1; min-height:0; display:flex; flex-di
 .hud-filters button{
   font-family:'Arian LT Demi', sans-serif;
   font-size:10px; letter-spacing:0.08em;
+  line-height:1;
   color:var(--text-faint);
   background:transparent;
   border:1px solid rgba(255,255,255,0.18);
-  border-radius:14px;
-  padding:6px 14px;
+  border-radius:16px;
+  /* Más padding = área de click/toque más grande, no solo más lindo.
+     min-height asegura un target cómodo aunque el texto sea chico. */
+  padding:11px 18px;
+  min-height:40px;
+  display:inline-flex; align-items:center; justify-content:center;
   cursor:pointer;
   transition:border-color 0.2s ease, color 0.2s ease;
 }
