@@ -23,7 +23,7 @@ const PROJECTS = [
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:01:24:12",
-    embedUrl: "https://player.vimeo.com/video/1215321008",
+    embedUrl: "https://player.vimeo.com/video/1215321008?h=f5a02e4542",
     stills: [] // rutas a imágenes fijas del proyecto, ej: "assets/proyectos/still1.jpg"
   },
   {
@@ -38,7 +38,7 @@ const PROJECTS = [
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:00:42:08",
-    embedUrl: "https://player.vimeo.com/video/1215321377",
+    embedUrl: "https://player.vimeo.com/video/1215321377?h=9751badd4e",
     stills: []
   },
   {
@@ -53,7 +53,7 @@ const PROJECTS = [
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:02:10:00",
-    embedUrl: "https://player.vimeo.com/video/1215321717",
+    embedUrl: "https://player.vimeo.com/video/1215321717?h=9ac2110289",
     stills: []
   },
   {
@@ -69,11 +69,11 @@ const PROJECTS = [
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:00:30:00",
-    embedUrl: "https://player.vimeo.com/video/1215323688",
+    embedUrl: "https://player.vimeo.com/video/1215323688?h=06b9095df0",
     videos: [
-      "https://player.vimeo.com/video/1215323689",
-      "https://player.vimeo.com/video/1215323690",
-      "https://player.vimeo.com/video/1215323691"
+      "https://player.vimeo.com/video/1215323689?h=e60db6502f",
+      "https://player.vimeo.com/video/1215323690?h=a3889ceb58",
+      "https://player.vimeo.com/video/1215323691?h=1088012298"
     ],
     stills: []
   },
