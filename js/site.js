@@ -210,54 +210,14 @@
   document.body.appendChild(ring);
   document.body.classList.add('has-custom-cursor');
 
-  const trail = document.createElement('canvas');
-  trail.id = 'cursorTrail';
-  document.body.appendChild(trail);
-  const tctx = trail.getContext('2d');
-  function sizeTrail(){
-    trail.width = window.innerWidth;
-    trail.height = window.innerHeight;
-  }
-  sizeTrail();
-  window.addEventListener('resize', sizeTrail);
-
-  // Sprite pre-renderizado: un punto suave, reutilizado para todas las
-  // partículas en vez de crear un gradiente nuevo en cada frame.
-  const SPRITE_SIZE = 24;
-  const sprite = document.createElement('canvas');
-  sprite.width = sprite.height = SPRITE_SIZE;
-  const sctx = sprite.getContext('2d');
-  const g = sctx.createRadialGradient(
-    SPRITE_SIZE / 2, SPRITE_SIZE / 2, 0,
-    SPRITE_SIZE / 2, SPRITE_SIZE / 2, SPRITE_SIZE / 2
-  );
-  g.addColorStop(0, 'rgba(255,255,255,1)');
-  g.addColorStop(1, 'rgba(255,255,255,0)');
-  sctx.fillStyle = g;
-  sctx.fillRect(0, 0, SPRITE_SIZE, SPRITE_SIZE);
-
-  const PARTICLE_COLORS = ['255,150,130', '235,232,228', '200,198,194'];
-  const PARTICLE_COUNT = 20;
-  const particles = Array.from({ length: PARTICLE_COUNT }, (_, i) => ({
-    angle: (i / PARTICLE_COUNT) * Math.PI * 2,
-    radius: 10 + Math.random() * 16,
-    speed: (0.008 + Math.random() * 0.012) * (Math.random() < 0.5 ? -1 : 1),
-    size: 3 + Math.random() * 4,
-    color: PARTICLE_COLORS[i % PARTICLE_COLORS.length],
-    alpha: 0
-  }));
-
   let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
   let ringX = mouseX, ringY = mouseY;
-  let prevX = mouseX, prevY = mouseY;
-  let speed = 0;
   let visible = false;
 
   window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX; mouseY = e.clientY;
     if(!visible){
       ringX = mouseX; ringY = mouseY;
-      prevX = mouseX; prevY = mouseY;
       visible = true;
       ring.classList.add('is-visible');
     }
@@ -278,26 +238,6 @@
     ringX += (mouseX - ringX) * 0.18;
     ringY += (mouseY - ringY) * 0.18;
     ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
-
-    // Velocidad suavizada del cursor real: define cuánto se muestran las partículas.
-    const dx = mouseX - prevX, dy = mouseY - prevY;
-    prevX = mouseX; prevY = mouseY;
-    const instantSpeed = Math.min(Math.hypot(dx, dy), 40);
-    speed += (instantSpeed - speed) * 0.2;
-    const targetAlpha = Math.min(speed / 6, 1);
-
-    tctx.clearRect(0, 0, trail.width, trail.height);
-    particles.forEach(p => {
-      p.angle += p.speed;
-      p.alpha += (targetAlpha - p.alpha) * 0.08;
-      if(p.alpha < 0.01) return;
-      const x = ringX + Math.cos(p.angle) * p.radius;
-      const y = ringY + Math.sin(p.angle) * p.radius;
-      tctx.globalAlpha = p.alpha * 0.55;
-      tctx.drawImage(sprite, x - p.size / 2, y - p.size / 2, p.size, p.size);
-    });
-    tctx.globalAlpha = 1;
-
     requestAnimationFrame(tick);
   }
   requestAnimationFrame(tick);
