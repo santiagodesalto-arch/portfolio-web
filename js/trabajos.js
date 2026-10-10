@@ -116,8 +116,8 @@ const PROJECTS = [
     year: 2026,
     category: "batallapost",
     description: [
-      "Campaña para Mabe Continental. Estuve a cargo de la edición de la totalidad del proyecto, desde el armado del montaje hasta la pieza final.",
-      "Además, desarrollé generaciones con inteligencia artificial y resolví el compositing necesario para integrarlas de forma natural dentro de las piezas.",
+      "Campaña para la renovación de marca de Mabe, desarrollada junto a un equipo multidisciplinario. Dentro del proyecto estuve a cargo de la edición.",
+      "Además, trabajé junto al equipo en las generaciones con inteligencia artificial y resolví parte del compositing necesario para mantener la consistencia de los productos a lo largo de las piezas.",
       "Trabajo realizado en Batallapost."
     ],
     tcIn: "00:00:00:00",
