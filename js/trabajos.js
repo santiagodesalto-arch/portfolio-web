@@ -22,8 +22,8 @@ const PROJECTS = [
       "Trabajo realizado en Batallapost."
     ],
     tcIn: "00:00:00:00",
-    tcOut: "00:01:24:12",
-    embedUrl: "https://player.vimeo.com/video/1215321008?h=f5a02e4542",
+    tcOut: "00:00:27:00",
+    embedUrl: "https://player.vimeo.com/video/1020751215",
     stills: [] // rutas a imágenes fijas del proyecto, ej: "assets/proyectos/still1.jpg"
   },
   {
@@ -89,8 +89,8 @@ const PROJECTS = [
       "Trabajo realizado en Batallapost."
     ],
     tcIn: "00:00:00:00",
-    tcOut: "00:00:30:00",
-    embedUrl: "https://player.vimeo.com/video/1224760135?h=29c85b8013",
+    tcOut: "00:01:11:00",
+    embedUrl: "https://player.vimeo.com/video/1232428565",
     stills: []
   },
   {
@@ -105,8 +105,24 @@ const PROJECTS = [
       "Trabajo realizado en Batallapost."
     ],
     tcIn: "00:00:00:00",
-    tcOut: "00:00:30:00",
-    embedUrl: "https://player.vimeo.com/video/1224758997?h=6bf728510f",
+    tcOut: "00:01:12:00",
+    embedUrl: "https://player.vimeo.com/video/1233117848",
+    stills: []
+  },
+  {
+    title: "Mabe Continental",
+    client: "MABE",
+    role: "Edición · IA Generativa · Compositing",
+    year: 2026,
+    category: "batallapost",
+    description: [
+      "Campaña para Mabe Continental. Estuve a cargo de la edición de la totalidad del proyecto, desde el armado del montaje hasta la pieza final.",
+      "Además, desarrollé generaciones con inteligencia artificial y resolví el compositing necesario para integrarlas de forma natural dentro de las piezas.",
+      "Trabajo realizado en Batallapost."
+    ],
+    tcIn: "00:00:00:00",
+    tcOut: "00:01:12:00",
+    embedUrl: "https://player.vimeo.com/video/1231722708",
     stills: []
   },
   {
@@ -138,6 +154,21 @@ const PROJECTS = [
       { type: "image", src: "https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/a4ca92236729397.68f170cdb0616.jpg" },
       { type: "image", src: "https://mir-s3-cdn-cf.behance.net/project_modules/hd_webp/d3b51b236729397.68f170cdb0048.jpg" }
     ],
+    stills: []
+  },
+  {
+    // Rol y descripción: borrador, editalos con lo que corresponda.
+    title: "After Movie — Fecha N°1 CSSF",
+    client: "Personal",
+    role: "Cámara · Edición",
+    year: 2026,
+    category: "personal",
+    description: [
+      "After movie de la Fecha N°1 de CSSF: registro de la jornada y edición de la pieza final."
+    ],
+    tcIn: "00:00:00:00",
+    tcOut: "00:00:52:00",
+    embedUrl: "https://player.vimeo.com/video/1234714341",
     stills: []
   }
 ];
