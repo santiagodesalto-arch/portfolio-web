@@ -697,6 +697,15 @@ main{ position:relative; z-index:10; flex:1; min-height:0; display:flex; flex-di
 .project-detail-text h2{ font-size:clamp(38px, 4.6vw, 68px); line-height:0.95; }
 .detail-divider{ width:48px; height:1px; background:var(--line); }
 .detail-description p{ font-size:15px; color:var(--text-dim); margin-bottom:14px; max-width:460px; line-height:1.6; }
+.detail-studio-link{
+  display:inline-block;
+  font-size:12px; letter-spacing:0.06em;
+  color:var(--text);
+  border-bottom:1px solid var(--line);
+  padding-bottom:2px;
+  transition:color 0.2s ease, border-color 0.2s ease;
+}
+.detail-studio-link:hover{ color:var(--accent); border-color:var(--accent); }
 .detail-tags{ display:flex; gap:10px; flex-wrap:wrap; }
 .detail-tags span{
   font-size:11px; color:var(--text-faint);

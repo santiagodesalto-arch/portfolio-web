@@ -6,7 +6,7 @@
    tcIn / tcOut: timecodes decorativos (podés dejarlos o
      cambiarlos por la duración real del video).
    category: para los filtros de arriba a la izquierda —
-     "batallapost" | "freelance" | "personal". Un proyecto sin
+     "batallastudio" | "freelance" | "personal". Un proyecto sin
      category no aparece en ningún filtro salvo "ALL WORKS".
 ========================================================= */
 const PROJECTS = [
@@ -15,11 +15,11 @@ const PROJECTS = [
     client: "Provincia de Santa Fe",
     role: "3D · Edición · Diseño Sonoro · Motion",
     year: 2025,
-    category: "batallapost",
+    category: "batallastudio",
     description: [
       "Campaña de seguridad vial para la Provincia de Santa Fe. Mi participación en este proyecto estuvo relacionada con el 3D y la edición: realicé las simulaciones de las prendas de los personajes y resolví algunos planos y encuadres de cámara.",
       "Por otro lado, estuve encargado del montaje de la pieza, el diseño sonoro y la animación de los supers.",
-      "Trabajo realizado en Batallapost."
+      "Trabajo realizado en Batallastudio."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:00:27:00",
@@ -31,10 +31,10 @@ const PROJECTS = [
     client: "Telcel",
     role: "Edición",
     year: 2025,
-    category: "batallapost",
+    category: "batallastudio",
     description: [
       "Pieza para Telcel. Mi trabajo estuvo enfocado exclusivamente en la edición: armé el montaje completo de la pieza de punta a punta.",
-      "Trabajo realizado en Batallapost."
+      "Trabajo realizado en Batallastudio."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:00:42:08",
@@ -46,10 +46,10 @@ const PROJECTS = [
     client: "Laboratorio Elea",
     role: "3D Tracking · Compositing · IA Generativa · Edición",
     year: 2025,
-    category: "batallapost",
+    category: "batallastudio",
     description: [
       "Campaña para el Laboratorio Elea. Participé en parte del tracking 3D y en algo de compositing e IA generativa, además de encargarme de la totalidad del montaje.",
-      "Trabajo realizado en Batallapost."
+      "Trabajo realizado en Batallastudio."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:02:10:00",
@@ -61,11 +61,11 @@ const PROJECTS = [
     client: "Schneider",
     role: "Edición",
     year: 2025,
-    category: "batallapost",
+    category: "batallastudio",
     description: [
       "Serie de piezas digitales para Schneider. Mi trabajo estuvo del lado de la edición: armé el montaje de cada una de las piezas de la tanda, pensadas para redes y plataformas digitales.",
       "Producción a cargo de Fight Films.",
-      "Trabajo realizado en Batallapost."
+      "Trabajo realizado en Batallastudio."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:00:30:00",
@@ -82,11 +82,11 @@ const PROJECTS = [
     client: "MABE",
     role: "3D · Animación · Render · Edición",
     year: 2026,
-    category: "batallapost",
+    category: "batallastudio",
     description: [
       "Serie de piezas para GE Appliance, dentro de la campaña BIC 7, desarrolladas íntegramente en 3D. Participé desde la creatividad y el planteamiento de los storyboards, hasta en parte de la animación, las simulaciones y los renders.",
       "También estuve a cargo de la totalidad del montaje de la campaña.",
-      "Trabajo realizado en Batallapost."
+      "Trabajo realizado en Batallastudio."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:01:11:00",
@@ -98,11 +98,11 @@ const PROJECTS = [
     client: "MABE",
     role: "3D · Animación · Render · Edición",
     year: 2026,
-    category: "batallapost",
+    category: "batallastudio",
     description: [
       "Piezas para Mabe dentro de la misma campaña BIC 7, también resueltas íntegramente en 3D: sumé a la creatividad y los storyboards, en parte de la animación, las simulaciones y los renders.",
       "También estuve a cargo de la totalidad del montaje de la campaña.",
-      "Trabajo realizado en Batallapost."
+      "Trabajo realizado en Batallastudio."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:01:12:00",
@@ -114,11 +114,11 @@ const PROJECTS = [
     client: "MABE",
     role: "Edición · IA Generativa · Compositing",
     year: 2026,
-    category: "batallapost",
+    category: "batallastudio",
     description: [
       "Campaña para la renovación de marca de Mabe, desarrollada junto a un equipo multidisciplinario. Dentro del proyecto estuve a cargo de la edición.",
       "Además, trabajé junto al equipo en las generaciones con inteligencia artificial y resolví parte del compositing necesario para mantener la consistencia de los productos a lo largo de las piezas.",
-      "Trabajo realizado en Batallapost."
+      "Trabajo realizado en Batallastudio."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:01:12:00",
@@ -170,8 +170,27 @@ const PROJECTS = [
     tcOut: "00:00:52:00",
     embedUrl: "https://player.vimeo.com/video/1234714341",
     stills: []
+  },
+  {
+    // Mismo formato que la Fecha N°1 — rol y descripción en borrador.
+    title: "After Movie — Fecha N°7 CSSF",
+    client: "Personal",
+    role: "Cámara · Edición",
+    year: 2026,
+    category: "personal",
+    description: [
+      "After movie de la Fecha N°7 de CSSF, en Junín: registro de la jornada y edición de la pieza final."
+    ],
+    tcIn: "00:00:00:00",
+    tcOut: "00:00:50:00",
+    embedUrl: "https://player.vimeo.com/video/1236905328",
+    stills: []
   }
 ];
+
+// Web del estudio: se muestra debajo de la descripción de los trabajos
+// con category "batallastudio".
+const STUDIO_URL = "https://www.studiobatalla.com/";
 
 const wrap = document.getElementById('sliderWrap');
 const stage = document.getElementById('sliderStage');
@@ -292,7 +311,7 @@ function render(){
 }
 render();
 
-// ---------- Filtros: ALL WORKS / BATALLAPOST / FREELANCE / PERSONAL ----------
+// ---------- Filtros: ALL WORKS / BATALLASTUDIO / FREELANCE / PERSONAL ----------
 const hudFilters = document.getElementById('hudFilters');
 const emptyMsg = document.createElement('div');
 emptyMsg.className = 'hud-empty mono';
@@ -300,7 +319,7 @@ document.querySelector('.slider-stage-wrap').appendChild(emptyMsg);
 
 const FILTER_LABELS = {
   all: 'trabajos',
-  batallapost: 'trabajos en BATALLAPOST',
+  batallastudio: 'trabajos en BATALLASTUDIO',
   freelance: 'trabajos FREELANCE',
   personal: 'trabajos PERSONALES'
 };
@@ -521,7 +540,11 @@ function openDetail(p){
   modalClient.textContent = p.client;
   modalYear.textContent = p.year;
   detailNumber.textContent = 'N°' + String(current + 1).padStart(2, '0');
-  modalDescription.innerHTML = p.description.map(paragraph => `<p>${paragraph}</p>`).join('');
+  modalDescription.innerHTML = p.description.map(paragraph => `<p>${paragraph}</p>`).join('')
+    // Los trabajos hechos en el estudio llevan su web debajo del texto.
+    + (p.category === 'batallastudio'
+      ? `<a class="detail-studio-link mono" href="${STUDIO_URL}" target="_blank" rel="noopener">studiobatalla.com ↗</a>`
+      : '');
   modalTags.innerHTML = p.role.split('·').map(tag => `<span>${tag.trim()}</span>`).join('');
 
   if(isBehanceProject(p)){
