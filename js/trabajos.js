@@ -187,14 +187,14 @@ const PROJECTS = [
     stills: []
   },
   {
-    // Rol en borrador — editalo con lo que hiciste.
     title: "Documental - BERNACH - Hotel Pullman",
     client: "Hotel Pullman Rosario",
-    role: "Cámara · Edición",
+    role: "Producción · Guion · Fotografía · Sonido · Edición",
     year: 2026,
     category: "freelance",
     description: [
-      "Pieza realizada para Hotel Pullman Rosario."
+      "Documental realizado para Hotel Pullman Rosario.",
+      "Un proyecto que llevé adelante de punta a punta y en solitario: me encargué de la producción, el guion, la fotografía y el sonido, además de la edición completa de la pieza."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:02:50:00",
