@@ -200,6 +200,23 @@ const PROJECTS = [
     tcOut: "00:02:50:00",
     embedUrl: "https://player.vimeo.com/video/1236911696",
     stills: []
+  },
+  {
+    // Año y duración pendientes: completarlos acá cuando los tengas.
+    title: "La Belleza de la Bestia",
+    client: "Cortometraje",
+    role: "Dirección de Fotografía · VFX",
+    year: "",
+    category: "freelance",
+    description: [
+      "Cortometraje en el que estuve a cargo de la dirección de fotografía y de los efectos visuales (VFX)."
+    ],
+    tcIn: "00:00:00:00",
+    tcOut: "",
+    // YouTube: miniatura directa del video (no pasa por la búsqueda de Vimeo).
+    thumbnail: "https://i.ytimg.com/vi/Cg5U5AEljkc/hqdefault.jpg",
+    embedUrl: "https://www.youtube.com/embed/Cg5U5AEljkc",
+    stills: []
   }
 ];
 
@@ -242,9 +259,9 @@ const cards = PROJECTS.map((p) => {
   const card = document.createElement('div');
   card.className = 'slide-card';
   card.innerHTML = `
-    <span class="slide-tc mono">${p.tcIn}</span>
+    ${p.tcIn ? `<span class="slide-tc mono">${p.tcIn}</span>` : ''}
     <div class="play"></div>
-    <span class="slide-tc-out mono">${p.tcOut}</span>
+    ${p.tcOut ? `<span class="slide-tc-out mono">${p.tcOut}</span>` : ''}
   `;
   card.addEventListener('click', () => openDetail(PROJECTS[order[current]]));
   stage.appendChild(card);
