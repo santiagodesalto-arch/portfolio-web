@@ -1,5 +1,5 @@
 # Archivos de trabajo/origen que no van al sitio publicado
-Proyectos/
+/Proyectos/
 
 # Configuración local de Claude Code
 .claude/settings.local.json

@@ -213,10 +213,14 @@ const PROJECTS = [
     ],
     tcIn: "00:00:00:00",
     tcOut: "",
-    // YouTube: miniatura directa del video (no pasa por la búsqueda de Vimeo).
-    thumbnail: "https://i.ytimg.com/vi/Cg5U5AEljkc/hqdefault.jpg",
+    // Miniatura: el primer still (la de YouTube no se pudo verificar).
+    thumbnail: "assets/proyectos/la-belleza-de-la-bestia/still-01.webp",
     embedUrl: "https://www.youtube.com/embed/Cg5U5AEljkc",
-    stills: []
+    stills: [
+      "assets/proyectos/la-belleza-de-la-bestia/still-01.webp",
+      "assets/proyectos/la-belleza-de-la-bestia/still-02.webp",
+      "assets/proyectos/la-belleza-de-la-bestia/still-03.webp"
+    ]
   }
 ];
 
