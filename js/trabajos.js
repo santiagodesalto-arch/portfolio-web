@@ -185,6 +185,21 @@ const PROJECTS = [
     tcOut: "00:00:50:00",
     embedUrl: "https://player.vimeo.com/video/1236905328",
     stills: []
+  },
+  {
+    // Rol en borrador — editalo con lo que hiciste.
+    title: "Documental - BERNACH - Hotel Pullman",
+    client: "Hotel Pullman Rosario",
+    role: "Cámara · Edición",
+    year: 2026,
+    category: "freelance",
+    description: [
+      "Pieza realizada para Hotel Pullman Rosario."
+    ],
+    tcIn: "00:00:00:00",
+    tcOut: "00:02:50:00",
+    embedUrl: "https://player.vimeo.com/video/1236911696",
+    stills: []
   }
 ];
 
