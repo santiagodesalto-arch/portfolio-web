@@ -187,14 +187,14 @@ const PROJECTS = [
     stills: []
   },
   {
-    title: "Documental - BERNACH - Hotel Pullman",
+    title: "DOCU - Pullman",
     client: "Hotel Pullman Rosario",
     role: "Producción · Guion · Fotografía · Sonido · Edición",
     year: 2026,
     category: "freelance",
     description: [
       "Documental realizado para Hotel Pullman Rosario.",
-      "Un proyecto que llevé adelante de punta a punta y en solitario: me encargué de la producción, el guion, la fotografía y el sonido, además de la edición completa de la pieza."
+      "Un proyecto que llevé adelante de punta a punta: me encargué de la producción, la fotografía y el sonido, además de la edición completa de la pieza. El guion lo desarrollé en conjunto con Nahuel Moreno."
     ],
     tcIn: "00:00:00:00",
     tcOut: "00:02:50:00",
