@@ -126,6 +126,22 @@ const PROJECTS = [
     stills: []
   },
   {
+    title: "Juegos Suramericanos 2026",
+    client: "Juegos Suramericanos 2026",
+    role: "IA Generativa · Edición",
+    year: 2026,
+    category: "batallastudio",
+    description: [
+      "Pieza institucional para los Juegos Suramericanos 2026, realizada íntegramente con inteligencia artificial.",
+      "Generé las tomas con IA junto a un equipo y estuve a cargo de la totalidad del montaje.",
+      "Trabajo realizado en Batallastudio."
+    ],
+    tcIn: "00:00:00:00",
+    tcOut: "00:01:14:00",
+    embedUrl: "https://player.vimeo.com/video/1231318858?h=d9fbb81896",
+    stills: []
+  },
+  {
     // Proyecto de prueba para el embed de Behance — título/rol/descripción
     // son un borrador a partir de lo que dice la página de Behance
     // (herramientas: C4D, Redshift, AE — publicado oct. 2025). Editalo
